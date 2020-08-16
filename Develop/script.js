@@ -1,21 +1,27 @@
 // Assignment code here
 // #generate is button
 // #password is textarea
-var passwordLowerCase;
-var passwordUpperCase;
-var passwordNumber;
-var passwordSpecial;
-var passwordArray = [];
+
+//Add variables
+// passwordChoices determines if true or false
+var passwordChoices = [true, false];
+// passwordLowerCharacters array holds all lower-case letters that can be used in password
 var passwordLowerCharacters = ["abcdefghijklmnopqrstuvwxyz"];
+//passwordUpperCharacters array holds all upper-case letters that can be used in password
 var passwordUpperCharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+//passwordNumbers array holds all numbers that can be used in password
 var passwordNumbers = ["0123456789"];
+//passwordSpecials array holds all numbers that can be used in password
 var passwordSpecials = ["@%!#$^?~&*()_-+={}[]|/:<>"];
+// passwordArray holds possible letters, numbers or special characters depending on user choices
+var passwordArray = [];
 
-
+//
 // Get references to the #generate element
 // looks for first element labeled #generate and assigns it as a value to generateBtn (generateBtn == #generate)
 var generateBtn = document.querySelector("#generate");
 
+//generates password
 function generatePassword(){
   
   
