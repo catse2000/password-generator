@@ -17,12 +17,36 @@ var passwordSpecials = ["@%!#$^?~&*()_-+={}[]|/:<>"];
 var passwordArray = [];
 
 //
+var fctPasswordLength = function(){
+  var length = 0;
+  var length = window.prompt("How long should the password be? (Enter a value between 8 and 128).").trim();
+  //error handling
+  debugger;
+  if (length == ""|| length == null || isNaN(length)){
+    window.alert("This is not a number. Please enter a number between 8 and 128.");
+    length = fctPasswordLength();
+  }
+  else if(length < 8 || length > 128){
+    if(length < 8){
+      window.alert("This number is too low. Please enter a value between 8 and 128.");
+      length = fctPasswordLength();
+    }
+    else if(length > 128){
+      window.alert("This number is too high. Please enter a value between 8 and 128.");
+      length = fctPasswordLength();
+    }
+  }
+  return length;
+};
 // Get references to the #generate element
 // looks for first element labeled #generate and assigns it as a value to generateBtn (generateBtn == #generate)
 var generateBtn = document.querySelector("#generate");
 
 //generates password
 function generatePassword(){
+  // request length of password and store
+  var passwordLength = fctPasswordLength();
+  window.alert(passwordLength);
   
   
 }
