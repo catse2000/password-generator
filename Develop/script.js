@@ -32,10 +32,13 @@ var generateBtn = document.querySelector("#generate");
 
 //generates password
 function generatePassword(){
+  //store bank of possible password letters based on user input
+  var passwordBank = [];
+
   // request length of password and store
-  var passwordBank = '';
   var passwordLength = fctPasswordLength();
 
+  // array to store various potential characters for password generator
   var passwordChoices = [
     {
       type: "lowercase",
@@ -59,15 +62,22 @@ function generatePassword(){
     }
   ];
 
-  debugger;
+  // creates passwordBank to be used with passwordLength to define a new password
   for(var i = 0; i < passwordChoices.length; i++)
   {
     if(passwordChoices[i].bool){
       passwordBank = passwordBank + passwordChoices[i].data;
-      window.alert(passwordBank);
     }
   }  
-  
+  //variable to store password
+  var password = '';
+
+  //outputs a generated password depending on user input
+  for(var i = 0; i < passwordLength; i++){
+    var j = Math.ceil(Math.random()*(passwordBank.length-1));
+      password = password + passwordBank[j];
+  }
+  return password;
 }
 
 // Write password to the #password input
