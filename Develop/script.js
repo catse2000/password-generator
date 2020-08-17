@@ -41,34 +41,36 @@ function generatePassword(){
   // array to store various potential characters for password generator
   var passwordChoices = [
     {
-      type: "lowercase",
+      type: "lowercase letters",
       data: "abcdefghijklmnopqrstuvwxyz",
-      bool: window.confirm("Do you want the password to contain lowercase letters?")
+      bool: true,
     },
     {
-      type: "uppercase",
+      type: "uppercase letters",
       data: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-      bool: window.confirm("Do you want the password to contain uppercase letters?")
+      bool: true,
     },
     {
-      type: "number",
+      type: "numbers",
       data: "0123456789",
-      bool: window.confirm("Do you want the password to contain numbers?")
+      bool: true,
     },
     {
-      type: "special",
+      type: "special characters",
       data: "@%!#$^?~&*()_-+={}[]|/:<>",
-      bool: window.confirm("Do you want the password to contain special characters?")
+      bool: true,
     }
   ];
 
-  // creates passwordBank to be used with passwordLength to define a new password
+  // asks prompts and creates passwordBank to be used with passwordLength to define a new password
   for(var i = 0; i < passwordChoices.length; i++)
   {
+    passwordChoices[i].bool = window.confirm("Do you want your password to have " + passwordChoices[i].type + "?");
     if(passwordChoices[i].bool){
       passwordBank = passwordBank + passwordChoices[i].data;
     }
-  }  
+  }
+
   //variable to store password
   var password = '';
 
