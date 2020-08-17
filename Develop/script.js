@@ -4,24 +4,12 @@
 
 //Add variables
 // passwordChoices determines if true or false
-var passwordChoices = [true, false];
-// passwordLowerCharacters array holds all lower-case letters that can be used in password
-var passwordLowerCharacters = ["abcdefghijklmnopqrstuvwxyz"];
-//passwordUpperCharacters array holds all upper-case letters that can be used in password
-var passwordUpperCharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-//passwordNumbers array holds all numbers that can be used in password
-var passwordNumbers = ["0123456789"];
-//passwordSpecials array holds all numbers that can be used in password
-var passwordSpecials = ["@%!#$^?~&*()_-+={}[]|/:<>"];
-// passwordArray holds possible letters, numbers or special characters depending on user choices
-var passwordArray = [];
 
 //
 var fctPasswordLength = function(){
   var length = 0;
   var length = window.prompt("How long should the password be? (Enter a value between 8 and 128).").trim();
   //error handling
-  debugger;
   if (length == ""|| length == null || isNaN(length)){
     window.alert("This is not a number. Please enter a number between 8 and 128.");
     length = fctPasswordLength();
@@ -45,9 +33,40 @@ var generateBtn = document.querySelector("#generate");
 //generates password
 function generatePassword(){
   // request length of password and store
+  var passwordBank = '';
   var passwordLength = fctPasswordLength();
-  window.alert(passwordLength);
-  
+
+  var passwordChoices = [
+    {
+      type: "lowercase",
+      data: "abcdefghijklmnopqrstuvwxyz",
+      bool: window.confirm("Do you want the password to contain lowercase letters?")
+    },
+    {
+      type: "uppercase",
+      data: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      bool: window.confirm("Do you want the password to contain uppercase letters?")
+    },
+    {
+      type: "number",
+      data: "0123456789",
+      bool: window.confirm("Do you want the password to contain numbers?")
+    },
+    {
+      type: "special",
+      data: "@%!#$^?~&*()_-+={}[]|/:<>",
+      bool: window.confirm("Do you want the password to contain special characters?")
+    }
+  ];
+
+  debugger;
+  for(var i = 0; i < passwordChoices.length; i++)
+  {
+    if(passwordChoices[i].bool){
+      passwordBank = passwordBank + passwordChoices[i].data;
+      window.alert(passwordBank);
+    }
+  }  
   
 }
 
