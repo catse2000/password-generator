@@ -7,7 +7,7 @@
 * Application generates password based on length and criteria
 
 ## Page and Screen Shot
-![Screenshot](../password-generator/assets/images/screenshot.png)
+![Screenshot](../password-generator/Develop/assets/images/screenshot.png)
 
 ## Link to Github
 [GithubPage](https://catse2000.github.io/password-generator/)
